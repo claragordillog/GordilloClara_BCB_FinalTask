@@ -39,10 +39,10 @@ Para ello, las tecnologías empleadas son:
 
 Dentro del proyecto-sam/
 
-* main.py--> # Script principal en Python
-* main.nf--> # Pipeline de Nextflow
-* pyproject.toml--> # Configuración del proyecto (uv)
-* README.md--> # Documentación
+* *main.py*--> # Script principal en Python. Contiene el programa que ejecuta el análisis del archivo SAM
+* *main.nf*--> # Pipeline de Nextflow, define el flujo de trabajo.
+* *pyproject.toml*--> # Configuración del proyecto (uv), gestiona las dependencias del proyecto.
+* *README.md*--> # Documentación que explica cómo usar el proyecto
 
 
 
@@ -62,19 +62,17 @@ Dentro del proyecto-sam/
 
 
 
-*uv sync*
+*uv init proyecto-sam* 
+
+*cd proyecto-sam* 
+
+*uv add rich*
 
 
 
-Ejecutar el script directamente
-
-uv run python3 main.py ruta/al/archivo.sam
+Esto crea automáticamente el entorno virtual y el archivo pyproject.toml
 
 
-
-**Ejemplo entrada esperada:**
-
-*python3 main.py \~/dia9/nf/2-Align/WT.sam*
 
 
 
@@ -90,9 +88,13 @@ nextflow run main.nf --sam ruta/al/archivo.sam
 
 
 
+**Ejemplo:**
+
+*nextflow run main.nf --sam \~/dia9/nf/2-Align/WT.sam*
 
 
-Finalmente, lo que muestra el programa es una tabla resumen con dos columnas con métricas analizadas (total de lecturas alineadas, lecturas con MAPQ y porcentaje) y valor obtenido de cada una de ellas. 
+
+Finalmente, lo que muestra el programa es una tabla resumen con dos columnas con métricas analizadas (total de lecturas alineadas, lecturas con MAPQ y porcentaje) y valor obtenido de cada una de ellas.
 
 
 
